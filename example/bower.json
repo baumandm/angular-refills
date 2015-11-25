@@ -1,0 +1,33 @@
+{
+  "name": "angular-refills-example",
+  "description": "Example of Angular-Refills directives",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Dave Bauman",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:baumandm/angular-refills.git"
+  },
+  "dependencies": {
+    "angular": "~1.4.8",
+    "bitters": "1.1.0",
+    "bourbon": "4.2.5",
+    "neat": "1.7.2",
+    "jquery": "~2.1.4"
+  },
+  "keywords": [
+    "bourbon",
+    "refills",
+    "angular",
+    "angularjs"
+  ],
+  "ignore": [
+    "src",
+    "test",
+    "bower_components",
+    "bower.json",
+    "node_modules",
+    "gruntfile.js"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+    "name": "angular-refills",
+    "author": "Dave Bauman",
+    "version": "0.0.1",
+    "license": "MIT",
+    "main": ["./dist/angular-refills.js"],
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:baumandm/angular-refills.git"
+    },
+    "dependencies": {
+    },
+    "keywords": [
+        "bourbon",
+        "refills",
+        "angular",
+        "angularjs"
+    ],
+    "ignore": [
+        "src",
+        "test",
+        "bower_components",
+        "bower.json",
+        "gruntfile.js"
+    ]
+} 
