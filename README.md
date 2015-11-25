@@ -6,6 +6,10 @@ This is a set of Angular.js directives that implement the functionality of [http
 
 They are all independent, so you can use only the ones you need.
 
+Refills is owned and maintained by [thoughtbot, inc.](http://thoughtbot.com/). This project is not affiliated in any way.
+
+_This project is currently in a pre-release state, so not all directives have been added._
+
 ## How to Use
 
 1. Include Refills in your project and include one or more of the patterns or components
