@@ -29,7 +29,7 @@ gulp.task 'sass', ->
     .pipe gulp.dest 'css'
 
 gulp.task 'watch', ->
-    watch '**/*.scss', -> gulp.start ['sass']
+    watch 'scss/*.scss', -> gulp.start ['sass']
 
 gulp.task 'build', sequence('bower-install', ['sass'])
 

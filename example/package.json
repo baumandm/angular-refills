@@ -1,7 +1,7 @@
 {
   "name": "angular-refills-example",
   "description": "Example of Angular-Refills directives",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "homepage": "https://github.com/baumandm/angular-refills",
   "author": "Dave Bauman <baumandm@gmail.com>",
