@@ -1,6 +1,6 @@
 /**
  * angular-refills - AngularJS directives for Bourbon.io Refills
- * @version v0.0.2 - Sat, 28 Nov 2015 13:07:01 GMT
+ * @version v0.0.2 - Mon, 04 Apr 2016 09:58:20 GMT
  * @link https://github.com/baumandm/angular-refills
  * @author Dave Bauman <baumandm@gmail.com>
  * @license MIT
@@ -57,7 +57,7 @@ angularRefills.directive('centeredNavigation', function() {
     link: function(scope, element) {
       var $element, menu, mobileMenu;
       $element = $(element);
-      menu = $element.find('.centered-navigation-menu').removeClass("show");
+      menu = $element.find('.centered-navigation-menu').removeClass('show');
       mobileMenu = $element.find('.centered-navigation-mobile-menu').unbind();
       return mobileMenu.on('click', function(event) {
         event.preventDefault();
@@ -66,6 +66,42 @@ angularRefills.directive('centeredNavigation', function() {
             return menu.removeAttr('style');
           }
         });
+      });
+    }
+  };
+});
+
+angularRefills.directive('verticalTabsContainer', function() {
+  return {
+    restrict: 'EAC',
+    link: function(scope, element) {
+      var $element, verticalTab, verticalTabAccordionHeading, verticalTabContent;
+      $element = $(element);
+      verticalTab = $element.find('.js-vertical-tab');
+      verticalTabAccordionHeading = $element.find('.js-vertical-tab-accordion-heading');
+      verticalTabContent = $element.find('.js-vertical-tab-content');
+      verticalTabContent.hide().first().show();
+      verticalTab.click(function(event) {
+        var activeTab;
+        event.preventDefault();
+        verticalTabContent.hide();
+        activeTab = $(this).attr('rel');
+        $('#' + activeTab).show();
+        verticalTab.removeClass('is-active');
+        $(this).addClass('is-active');
+        verticalTabAccordionHeading.removeClass('is-active');
+        return $('.js-vertical-tab-accordion-heading[rel^="' + activeTab + '"]').addClass('is-active');
+      });
+      return verticalTabAccordionHeading.click(function(event) {
+        var accordion_activeTab;
+        event.preventDefault();
+        verticalTabContent.hide();
+        accordion_activeTab = $(this).attr('rel');
+        $('#' + accordion_activeTab).show();
+        verticalTabAccordionHeading.removeClass('is-active');
+        $(this).addClass('is-active');
+        verticalTab.removeClass('is-active');
+        return $('.js-vertical-tab[rel^="' + accordion_activeTab + '"]').addClass('is-active');
       });
     }
   };

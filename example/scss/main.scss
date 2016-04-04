@@ -13,4 +13,10 @@
 @import 'accordion-tabs';
 @import 'accordion-tabs-minimal';
 @import 'centered-navigation';
+@import 'vertical-tabs';
 
+h2 {
+    border-top: 1px dotted #ccc;
+    margin-top: 2rem;
+    padding-top: 2rem;
+}

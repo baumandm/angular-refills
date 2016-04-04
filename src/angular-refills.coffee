@@ -57,7 +57,7 @@ angularRefills.directive 'centeredNavigation', ->
             $element = $(element)
 
             menu = $element.find('.centered-navigation-menu')
-                .removeClass("show")
+                .removeClass('show')
 
             mobileMenu = $element.find('.centered-navigation-mobile-menu')
                 .unbind()
@@ -66,4 +66,49 @@ angularRefills.directive 'centeredNavigation', ->
                 event.preventDefault()
                 menu.slideToggle ->
                     menu.removeAttr 'style' if menu.is ':hidden'
+    }
+
+angularRefills.directive 'verticalTabsContainer', ->
+    {
+        restrict: 'EAC'
+        link: (scope, element) ->
+            $element = $(element)
+
+            verticalTab = $element.find('.js-vertical-tab')
+            verticalTabAccordionHeading = $element.find('.js-vertical-tab-accordion-heading')
+            verticalTabContent = $element.find('.js-vertical-tab-content')
+
+            verticalTabContent
+                .hide()
+                .first()
+                .show()
+
+            # If in tab mode
+            verticalTab.click (event) ->
+                event.preventDefault()
+
+                verticalTabContent.hide()
+                activeTab = $(this).attr('rel')
+                $('#' + activeTab).show()
+
+                verticalTab.removeClass('is-active')
+                $(this).addClass('is-active')
+
+                verticalTabAccordionHeading.removeClass('is-active')
+                $('.js-vertical-tab-accordion-heading[rel^="' + activeTab + '"]').addClass('is-active')
+
+
+            # If in accordion mode
+            verticalTabAccordionHeading.click (event) ->
+                event.preventDefault()
+
+                verticalTabContent.hide()
+                accordion_activeTab = $(this).attr('rel')
+                $('#' + accordion_activeTab).show()
+
+                verticalTabAccordionHeading.removeClass('is-active')
+                $(this).addClass('is-active')
+
+                verticalTab.removeClass('is-active')
+                $('.js-vertical-tab[rel^="' + accordion_activeTab + '"]').addClass('is-active')
     }
