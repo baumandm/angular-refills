@@ -686,6 +686,45 @@ html {
   }
 }
 
+.expander {
+  width: 60%;
+}
+
+.expander .expander-trigger {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-bottom: 1px solid #ddd;
+  color: #477dca;
+  cursor: pointer;
+  display: block;
+  font-size: 1em;
+  margin-bottom: 1em;
+  padding-bottom: 0.25em;
+  text-decoration: none;
+}
+
+.expander .expander-trigger:before {
+  font-size: 0.7em;
+  content: "\25BC";
+  margin-right: 0.5em;
+}
+
+.expander .expander-content p {
+  color: #333;
+  line-height: 1.5;
+}
+
+.expander .expander-hidden:before {
+  font-size: 0.7em;
+  content: "\25BA";
+}
+
+.expander .expander-hidden + .expander-content {
+  display: none;
+}
+
 .vertical-tabs-container {
   border-radius: 3px;
   border: 1px solid #ddd;

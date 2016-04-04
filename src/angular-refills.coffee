@@ -68,6 +68,17 @@ angularRefills.directive 'centeredNavigation', ->
                     menu.removeAttr 'style' if menu.is ':hidden'
     }
 
+angularRefills.directive 'expander', ->
+    {
+        restrict: 'EAC'
+        link: (scope, element) ->
+            $element = $(element)
+            expanderTrigger = $element.find('.expander-trigger')
+
+            expanderTrigger.on 'click', (event) ->
+                $(this).toggleClass 'expander-hidden'
+    }
+
 angularRefills.directive 'verticalTabsContainer', ->
     {
         restrict: 'EAC'
@@ -84,7 +95,7 @@ angularRefills.directive 'verticalTabsContainer', ->
                 .show()
 
             # If in tab mode
-            verticalTab.click (event) ->
+            verticalTab.on 'click', (event) ->
                 event.preventDefault()
 
                 verticalTabContent.hide()
@@ -99,7 +110,7 @@ angularRefills.directive 'verticalTabsContainer', ->
 
 
             # If in accordion mode
-            verticalTabAccordionHeading.click (event) ->
+            verticalTabAccordionHeading.on 'click', (event) ->
                 event.preventDefault()
 
                 verticalTabContent.hide()
